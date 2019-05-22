@@ -26,7 +26,7 @@ module.exports = {
     //function to delete notes
     delete: function (data, cb) {
         Note.remove({
-            _id: data.id
+            _id: data._id
         }, cb);
     }
 }
