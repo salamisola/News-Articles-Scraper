@@ -15,7 +15,7 @@ module.exports = function (router) {
         res.render("saved");
     });
     //API routes added
-    router.get("/api/fetch"), function (req, res) {
+    router.get("/api/fetch", function (req, res) {
         headlinesController.fetch(function (err, docs) {
             if (!docs || docs.insertedCount === 0) {
                 res.jason({
@@ -25,7 +25,24 @@ module.exports = function (router) {
                 res.json({
                     message: "added " + docs.insertedCount + " new articles"
                 });
+
             }
         });
-    }
+    });
+    router.get("/api/headlines", function (req, res) {
+        var query = {};
+        if (req.query.saved) {
+            query = re.query
+        }
+        headlinesController.get(query, function (data) {
+            res.json(data);
+        });
+    });
+    router.delete("/api/headlines/:id", function (req, res) {
+        var query = {};
+        query._id = req.params.id;
+        headlinesController.delete(query, function (err, data) {
+            res.json(data);
+        });
+    });
 }
