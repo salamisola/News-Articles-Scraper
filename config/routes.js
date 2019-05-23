@@ -1,5 +1,5 @@
 //Server routes
-Var scrape = require("../scripts/scrape");
+/* Var scrape = require("../scripts/scrape"); */
 
 //headline and notes from controller
 var headlinesController = require("../controllers/headlines");
