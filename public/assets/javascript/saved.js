@@ -39,12 +39,13 @@ function createPanel(article) {
             "<div class='panel-heading'>",
                 "<h3>",
                 article.headline,
-                "<a class='btn btn-success save'>",
-                "save Article",
+                "<a class='btn btn-danger delete'>",
+                "delete from saved",
                 "</a>",
+                "<a class='btn btn-info notes'>Article Notes</a>"
                 "</h3>",
                 "</div>",
-                "<div clss='panel-body'>",
+                "<div class='panel-body'>",
                 article.summary,
                 "</div>"
                 "</div>",
@@ -119,7 +120,7 @@ function handleArticleNotes() {
 
     var currentArticle = $(this).parents(".panel").data();
 
-    $.get("/api/notes/") + currentArticle._id).then(funtion(data) {
+    $.get("/api/notes/" + currentArticle._id).then(funtion(data) {
 
         var modalText = [
             "<div class='container-fluid text-center'>",

@@ -1,5 +1,5 @@
 //Set controller for notes
-var scrape = require("../models/Note");
+var Note = require("../models/Note");
 var makeDate = require("../scripts/date");
 
 module.exports = {
@@ -20,6 +20,7 @@ module.exports = {
             }
             else {
                 console.log(doc);
+                cb(doc);
             }
         });
     },

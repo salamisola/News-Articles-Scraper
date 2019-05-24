@@ -1,5 +1,5 @@
 //Server routes
-/* Var scrape = require("../scripts/scrape"); */
+var scrape = require("../scripts/scrape");
 
 //headline and notes from controller
 var headlinesController = require("../controllers/headlines");
@@ -18,8 +18,8 @@ module.exports = function (router) {
     router.get("/api/fetch", function (req, res) {
         headlinesController.fetch(function (err, docs) {
             if (!docs || docs.insertedCount === 0) {
-                res.jason({
-                    message: "No new articles today. Check back tomorrow!"
+                res.json({
+                    message: "No new articles today!"
                 })
             } else {
                 res.json({
@@ -32,7 +32,7 @@ module.exports = function (router) {
     router.get("/api/headlines", function (req, res) {
         var query = {};
         if (req.query.saved) {
-            query = re.query
+            query = req.query
         }
         headlinesController.get(query, function (data) {
             res.json(data);
