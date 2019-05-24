@@ -22,11 +22,11 @@ body {
     box-shadow: 10px 5px 20px 2px lightcyan
 }
 .jumbotron h1 {
-    color: red;
+    color: black;
 }
 
 .jumbotron p {
-    color:red;
+    color:black;
 }
 
 .jumbotron .overlay {

@@ -3,6 +3,8 @@
 //Require request and cheerio
 var request = require("request");
 var cheerio = require("cheerio");
+var mongoose = require("mongoose");
+
 
 //the callback function
 var scrape = function (cb) {
@@ -11,6 +13,8 @@ var scrape = function (cb) {
         var $ = cheerio.load(body);
 
         var articles = [];
+
+        //==============================
 
         $(".theme-summary").each(function (i, element) {
             var head = $(this).children(".story-heading").text().trim();
@@ -31,4 +35,25 @@ var scrape = function (cb) {
         cb(articles);
     });
 };
+
+
 module.exports = scrape;
+
+/* $('h2').each(function (i, element) {
+             console.log(`-----${i}--------`);
+             // Save the text of the element in a "title" variable
+             const title = $(element)
+                 .find('span')
+                 .text();
+             console.log(`title: ${title}`);
+
+             const link = $(element)
+                 .closest('a')
+                 .attr('href');
+
+             console.log(link);
+             if (title && link) {
+                 articles.push({
+                     title,
+                     link,*/
+/* }); */

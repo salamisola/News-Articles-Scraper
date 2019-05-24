@@ -1,8 +1,8 @@
-var scrape = require("../scripts/scrape");
-var makeDate = require("../scripts/date");
+var scrape = require("./scripts/scrape");
+var makeDate = require("./scripts/date");
 
 //require Headline and Note models
-var Headline = require("../models/headline");
+var Headline = require("./models/headline");
 
 module.exports = {
     //to run fetch and grab articles and store in the "articles variable"
